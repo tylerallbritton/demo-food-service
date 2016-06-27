@@ -1,4 +1,4 @@
-- view: pos_fact
+- view: pos_fact2
   sql_table_name: tis_demo_food_service.pos_fact
   fields:
 
