@@ -6,7 +6,10 @@
       height: 270
     - elements: [Compare Two products, Typical Sales Day Vs Evening]
       height: 270
- 
+    - elements: [Top 5 Products by Sale, Bottom 5 by Sales]
+      height: 270
+    - elements: [Cash vs Credit]
+      height: 270
 
 #  filters:
 
@@ -112,7 +115,7 @@
   - name: Typical Sales Day Vs Evening
     title: Typical Sales Day Vs Evening
     type: looker_area
-    model: fooddemo
+    model: food_service_demo
     explore: pos_fact
     dimensions: [pos_fact.a_transaction_dt_day_of_week]
     measures: [pos_fact.sumday, pos_fact.sumeve, pos_fact.Sale_USD]
@@ -151,4 +154,103 @@
     show_silhouette: false
     totals_color: '#808080'
   
-    
+  - name: Top 5 Products by Sale
+    title: Top 5 products
+    type: looker_bar
+    model: food_service_demo
+    explore: pos_fact
+    dimensions: [pos_fact.c_product_name]
+    measures: [pos_fact.Sale_USD]
+    sorts: [pos_fact.Sale_USD desc]
+    limit: 5
+    stacking: ''
+    colors: [red, blue, green, yellow, brown, '#db341d']
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    series_colors:
+      pos_fact.Sale_USD: '#EE3324'
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_labels: [Sales (USD)]
+    y_axis_tick_density: default
+    show_x_axis_label: true
+    x_axis_label: Product Name
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    show_null_labels: false
+  
+  - name: Bottom 5 by Sales
+    title: Bottom 5 Products by Sales
+    type: looker_bar
+    model: food_service_demo
+    explore: pos_fact
+    dimensions: [pos_fact.c_product_name]
+    measures: [pos_fact.Sale_USD]
+    sorts: [pos_fact.Sale_USD]
+    limit: 5
+    stacking: ''
+    colors: [orange, darkblue, lightgreen, silver, purple]
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_labels: [Sales (USD)]
+    y_axis_tick_density: default
+    show_x_axis_label: true
+    x_axis_label: Product Name
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    show_null_labels: false
+
+  - name: Cash vs Credit
+    title: Cash vs Credit Transactions by Category
+    type: looker_bar
+    model: food_service_demo
+    explore: pos_fact
+    dimensions: [pos_fact.a_payment_typ, pos_fact.c_product_category]
+    pivots: [pos_fact.a_payment_typ]
+    measures: [pos_fact.Sale_USD]
+    filters:
+      pos_fact.f_city: Alpharetta,Ashburn
+    sorts: [pos_fact.a_payment_typ desc, pos_fact.Sale_USD desc 0]
+    limit: 500
+    column_limit: 50
+    stacking: percent
+    colors: ['#5245ed', '#ed6168', '#1ea8df', '#353b49', '#49cec1', '#b3a0dd', '#db7f2a',
+      '#706080', '#a2dcf3', '#776fdf', '#e9b404', '#635189']
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: true
+    y_axis_gridlines: true
+    show_view_names: false
+    series_colors:
+      Credit: '#005DAA'
+      Cash: FFEB6D
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_labels: [Sales (USD)]
+    y_axis_tick_density: custom
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Product Name
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    ordering: none
+    show_null_labels: false
