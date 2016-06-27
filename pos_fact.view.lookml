@@ -19,16 +19,12 @@
     sql: ${TABLE}.a_staff_id
 
   - dimension: a_transaction_dt
-    type: string
+    type: time
     sql: ${TABLE}.a_transaction_dt
 
   - dimension: a_transaction_id
     type: string
     sql: ${TABLE}.a_transaction_id
-
-  - dimension: a_weather_cond
-    type: string
-    sql: ${TABLE}.a_weather_cond
 
   - dimension: b_product_id
     type: number
@@ -125,9 +121,77 @@
   - dimension: staff_last
     type: string
     sql: ${TABLE}.staff_last
+    
+  - dimension: latlon
+    type: location
+    sql_latitude: ${f_latitude}
+    sql_longitude: ${f_longitude}
 
+  - dimension: date_only
+    type: date_date
+    datatype: date
+    sql: ${TABLE}.a_transaction_dt
+    
+  - dimension: a_weather_cond
+    type: string
+    sql: ${TABLE}.a_weather_cond
+    
   - measure: count
     type: count
     approximate_threshold: 100000
     drill_fields: [f_store_name, c_product_name]
 
+  - measure: Sale_USD
+    type: sum
+    sql: ${c_product_retail_price}
+    value_format_name: usd
+    
+  - measure: sumday
+    type: sum
+    sql: |
+      CASE WHEN ${a_transaction_dt_hour_of_day} <= 17 
+      THEN ${c_product_retail_price}
+      ELSE NULL 
+      END
+    value_format_name: usd
+  - measure: sumeve
+    type: sum
+    sql: |
+      CASE WHEN ${a_transaction_dt_hour_of_day} > 17 
+      THEN ${c_product_retail_price}
+      ELSE NULL 
+      END
+    value_format_name: usd
+      
+  - filter: Product1
+    label: 'Pick a Product1'
+    suggest_dimension: c_product_name
+    
+  - measure: Product1_Sales
+    type: sum
+    sql: |
+      CASE WHEN {% condition Product1 %} ${c_product_name} {% endcondition %}
+      THEN ${c_product_retail_price}
+      ELSE NULL
+      END
+    value_format_name: usd
+      
+  - filter: Product2
+    label: 'Pick a Product2'
+    suggest_dimension: c_product_name
+    
+  - measure: Product2_Sales
+    type: sum
+    sql: |
+      CASE WHEN {% condition Product2 %} ${c_product_name} {% endcondition %}
+      THEN ${c_product_retail_price}
+      ELSE NULL
+      END
+    value_format_name: usd
+  
+  - dimension: image_file
+    sql: ('http://vignette3.wikia.nocookie.net/logopedia/images/2/27/Fuddruckers_logo.png/revision/latest?cb=20151013002315')
+    
+  - dimension: product_image
+    sql: ${image_file}
+    html: <img src="{{ value }}" width="100" height="100"/>
