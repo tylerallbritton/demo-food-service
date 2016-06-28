@@ -1,7 +1,13 @@
 - dashboard: restaurant_demo2
   title: Restaurant Demo Page-2
-  layout: tile
-  tile_size: 100
+  layout: grid
+  rows:
+    - elements: [logo]
+      height: 55
+    - elements: [Compare Two products]
+      height: 270
+      width: 800
+  
 
   filters:
   - name: Map-product-category
@@ -9,21 +15,13 @@
     type: field_filter
     explore: pos_fact
     field: pos_fact.c_product_category
-    default_value: "Bakery Treats"
+  
    
   - name: Map-Quarter
     title: 'Quarter'
     type: field_filter
     explore: pos_fact
     field: pos_fact.a_transaction_dt_quarter_of_year
-    default_value: "Q1"
-  
-  - name: Product Name
-    title: 'Product Name'
-    type: field_filter
-    explore: pos_fact
-    field: pos_fact.c_product_name
-    default_value: "Shake"
    
     
   - name: City
@@ -62,6 +60,16 @@
     default_value: "1/3 lb. Burger"  
 
   elements:
+  - name: logo
+    title: logo
+    type: single_value
+    model: food_service_demo
+    explore: pos_fact
+    dimensions: [pos_fact.product_image]
+    sorts: [pos_fact.product_image]
+    limit: 500
+    show_single_value_title: false
+    show_comparison: false
 
   - name: Compare Two products
     title: Sales Comparison of two products
@@ -77,7 +85,6 @@
       City: pos_fact.f_city
       Map-product-category: pos_fact.c_product_category
       Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
-      Product Name: pos_fact.c_product_name
       orgtype: pos_fact.f_org_typ 
     limit: 500
     stacking: ''
@@ -108,3 +115,5 @@
     x_axis_scale: auto
     y_axis_scale_mode: linear
     show_null_labels: false
+    
+ 

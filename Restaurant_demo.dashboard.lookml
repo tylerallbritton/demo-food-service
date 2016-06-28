@@ -2,9 +2,11 @@
   title: Restaurant Demo Page-1
   layout: grid
   rows:
-    - elements: [Sales stats on Map, Sales by the Hour]
+    - elements: [logo]
+      height: 55
+    - elements: [Sales stats on Map,Typical Sales Day Vs Evening]
       height: 270
-    - elements: [Typical Sales Day Vs Evening,Top 5 Products by Sale]
+    - elements: [Sales by the Hour,Top 5 Products by Sale]
       height: 270
     - elements: [Cash vs Credit, Bottom 5 by Sales]
       height: 270
@@ -16,21 +18,21 @@
     type: field_filter
     explore: pos_fact
     field: pos_fact.c_product_category
-    default_value: "Bakery Treats"
+    
    
   - name: Map-Quarter
     title: 'Quarter'
     type: field_filter
     explore: pos_fact
     field: pos_fact.a_transaction_dt_quarter_of_year
-    default_value: "Q1"
+    
   
   - name: Product Name
     title: 'Product Name'
     type: field_filter
     explore: pos_fact
     field: pos_fact.c_product_name
-    default_value: "Shake"
+  
    
   - name: City
     title: 'City'
@@ -113,12 +115,12 @@
     y_axis_gridlines: true
     show_view_names: false
     series_colors:
-      pos_fact.Sale_USD: 005DAA
+      pos_fact.count: "#005DAA"
     limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
-    y_axis_labels: [Sales (USD)]
+    y_axis_labels: [Sales (Units)]
     y_axis_tick_density: custom
     y_axis_tick_density_custom: 4
     show_x_axis_label: true
@@ -288,3 +290,16 @@
     x_axis_scale: auto
     ordering: none
     show_null_labels: false
+
+
+  - name: logo
+    title: logo
+    type: single_value
+    model: food_service_demo
+    explore: pos_fact
+    dimensions: [pos_fact.product_image]
+    sorts: [pos_fact.product_image]
+    limit: 500
+    show_single_value_title: false
+    show_comparison: false
+

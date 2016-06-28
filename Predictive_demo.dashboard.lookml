@@ -1,14 +1,21 @@
 - dashboard: predictive_demo
   title: Predictive Demo
-  layout: tile
-  tile_size: 100
+  layout: grid
+  rows:
+    - elements: [logo]
+      height: 55
+    - elements: [Sale by Weather - Hist,Linear Regression Results]
+      height: 370
+    - elements: [Sales by Weather]
+      height: 370
+ 
 
 #  filters:
 
   elements:
   
   - name: Sale by Weather - Hist
-    title: Sales by Weather Condition- Austin Bee Cave Location
+    title: Sales by Weather Condition- Dallas Location
     type: looker_column
     model: food_service_demo
     explore: pos_fact
@@ -43,9 +50,34 @@
     y_axis_scale_mode: linear
     show_null_labels: false
 
+  - name: Linear Regression Results
+    type: text
+    explore: pos_fact
+    title_text: "NO CORRELATION BETWEEN WEATHER AND SALES"
+    subtitle_text: "Linear Regression - Sales by Weather Condition"
+    body_text: "Least possible range indicates good predictability. In this case , there is not much variation in sales between different weather conditions. This model shows there is no variation in sales by weather condition.
+    ===========================================================
+    Condition   Baseline sale per hour                  Possible Range
+    
+    Clear                          213.6                                 208.595   218.681
+    ============================================================
+    Condition       Change in Sale-from Baseline         Possible Range
+    
+  
+    Cold                                    -0.4                                  -20.088    19.217  
+    
+    Hot                                    -11.3                                  -26.280     3.535
+    
+    Rain                                    -1.3                                  -10.441     7.783
+    
+    Snow                                    6.6                                 -10.313    23.696
+  
+  ==========================================================="
+  
+
 
   - name: Sales by Weather
-    title: Sales Table by Weather Condition - Austin Bee Cave Location
+    title: Sales Table by Weather Condition - Dallas Location
     type: table
     model: food_service_demo
     explore: pos_fact
@@ -66,5 +98,16 @@
       pos_fact.Avg_Sale_USD: Avg. Transaction Amount
     table_theme: white
     limit_displayed_rows: false
-
-
+    
+    
+  - name: logo
+    title: logo
+    height: 55
+    type: single_value
+    model: food_service_demo
+    explore: pos_fact
+    dimensions: [pos_fact.product_image]
+    sorts: [pos_fact.product_image]
+    limit: 500
+    show_single_value_title: false
+    show_comparison: false
