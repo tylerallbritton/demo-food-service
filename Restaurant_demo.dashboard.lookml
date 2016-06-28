@@ -278,7 +278,7 @@
     y_axis_gridlines: true
     show_view_names: false
     series_colors:
-      pos_fact.Sale_USD: '#EE3324'
+      pos_fact.Sale_USD: '#00BC13'
     limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
