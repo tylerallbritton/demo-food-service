@@ -1,5 +1,5 @@
 - dashboard: restaurant_demo2
-  title: Restaurant Demo2
+  title: Restaurant Demo Page-2
   layout: tile
   tile_size: 100
 
