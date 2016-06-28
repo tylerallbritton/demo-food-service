@@ -93,7 +93,7 @@
     model: food_service_demo
     explore: pos_fact
     dimensions: [pos_fact.a_transaction_dt_hour_of_day]
-    measures: [pos_fact.Sale_USD]
+    measures: [pos_fact.count]
     sorts: [pos_fact.a_transaction_dt_hour_of_day]
     listen: 
       Product Name: pos_fact.c_product_name
@@ -256,8 +256,7 @@
     type: looker_bar
     model: food_service_demo
     explore: pos_fact
-    dimensions: [pos_fact.a_payment_typ, pos_fact.c_product_category]
-    pivots: [pos_fact.a_payment_typ]
+    dimensions: [pos_fact.a_payment_typ]
     measures: [pos_fact.Sale_USD]
     listen:
       City: pos_fact.f_city
@@ -280,7 +279,7 @@
     show_view_names: false
     series_colors:
       Credit: '#005DAA'
-      Cash: FFEB6D
+      Cash: '#FFEB6D'
     limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
