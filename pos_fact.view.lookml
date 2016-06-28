@@ -195,3 +195,8 @@
   - dimension: product_image
     sql: ${image_file}
     html: <img src="{{ value }}" width="100" height="100"/>
+    
+  - measure: Avg_Sale_USD
+    type: average
+    sql: ${c_product_retail_price}
+    value_format_name: usd
