@@ -8,7 +8,7 @@
   elements:
   
   - name: Sale by Weather - Hist
-    title: Sales by Weather Condition- Austin Bee Cave Location
+    title: Sales by Weather Condition- Denver Location
     type: looker_column
     model: food_service_demo
     explore: pos_fact
@@ -70,7 +70,7 @@
 
 
   - name: Sales by Weather
-    title: Sales Table by Weather Condition - Austin Bee Cave Location
+    title: Sales Table by Weather Condition - Denver Location
     type: table
     model: food_service_demo
     explore: pos_fact
