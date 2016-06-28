@@ -57,7 +57,7 @@
   elements:
 
   - name: Sales stats on Map
-    title: Sales stats on Map
+    title: Sales by Location
     type: looker_map
     model: food_service_demo
     explore: pos_fact
@@ -88,7 +88,7 @@
 
 
   - name: Sales by the Hour
-    title: Sales by the Hour
+    title: Sales Units by the Hour
     type: looker_column
     model: food_service_demo
     explore: pos_fact
@@ -178,7 +178,7 @@
     totals_color: '#808080'
   
   - name: Top 5 Products by Sale
-    title: Top 5 products
+    title: Top 5 Products by Sales
     type: looker_bar
     model: food_service_demo
     explore: pos_fact
@@ -252,7 +252,7 @@
     show_null_labels: false
 
   - name: Cash vs Credit
-    title: Cash vs Credit Transactions by Category
+    title: Cash vs Credit Transactions
     type: looker_bar
     model: food_service_demo
     explore: pos_fact
