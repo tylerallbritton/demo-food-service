@@ -187,9 +187,7 @@
     sorts: [pos_fact.Sale_USD desc]
     listen: 
       City: pos_fact.f_city
-      Map-product-category: pos_fact.c_product_category
       Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
-      Product Name: pos_fact.c_product_name
       orgtype: pos_fact.f_org_typ 
     limit: 5
     stacking: ''
@@ -225,9 +223,7 @@
     sorts: [pos_fact.Sale_USD]
     listen: 
      City: pos_fact.f_city
-     Map-product-category: pos_fact.c_product_category
      Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
-     Product Name: pos_fact.c_product_name
      orgtype: pos_fact.f_org_typ 
     limit: 5
     stacking: ''
