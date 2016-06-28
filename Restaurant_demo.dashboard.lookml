@@ -16,21 +16,21 @@
     type: field_filter
     explore: pos_fact
     field: pos_fact.c_product_category
-    default_value: "Bakery Treats"
+    
    
   - name: Map-Quarter
     title: 'Quarter'
     type: field_filter
     explore: pos_fact
     field: pos_fact.a_transaction_dt_quarter_of_year
-    default_value: "Q1"
+    
   
   - name: Product Name
     title: 'Product Name'
     type: field_filter
     explore: pos_fact
     field: pos_fact.c_product_name
-    default_value: "Shake"
+  
    
   - name: City
     title: 'City'
