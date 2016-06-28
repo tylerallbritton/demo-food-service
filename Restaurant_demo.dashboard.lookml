@@ -1,5 +1,5 @@
 - dashboard: restaurant_demo
-  title: Restaurant Demo
+  title: Restaurant Demo Page-1
   layout: grid
   rows:
     - elements: [Sales stats on Map, Sales by the Hour]
