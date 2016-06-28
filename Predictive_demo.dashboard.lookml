@@ -1,7 +1,14 @@
 - dashboard: predictive_demo
   title: Predictive Demo
-  layout: tile
-  tile_size: 100
+  layout: grid
+  rows:
+    - elements: [logo]
+      height: 55
+    - elements: [Sale by Weather - Hist,Linear Regression Results]
+      height: 370
+    - elements: [Sales by Weather]
+      height: 370
+ 
 
 #  filters:
 
@@ -93,4 +100,14 @@
     limit_displayed_rows: false
     
     
- 
+  - name: logo
+    title: logo
+    height: 55
+    type: single_value
+    model: food_service_demo
+    explore: pos_fact
+    dimensions: [pos_fact.product_image]
+    sorts: [pos_fact.product_image]
+    limit: 500
+    show_single_value_title: false
+    show_comparison: false

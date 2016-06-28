@@ -190,11 +190,11 @@
     value_format_name: usd
   
   - dimension: image_file
-    sql: ('http://vignette3.wikia.nocookie.net/logopedia/images/2/27/Fuddruckers_logo.png/revision/latest?cb=20151013002315')
+    sql: ('https://dl.dropboxusercontent.com/s/8ice1zcfouaxkhc/restaurant-logo.png')
     
   - dimension: product_image
     sql: ${image_file}
-    html: <img src="{{ value }}" width="100" height="100"/>
+    html: <img src="{{ value }}" />
     
   - measure: Avg_Sale_USD
     type: average

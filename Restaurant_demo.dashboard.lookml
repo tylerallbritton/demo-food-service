@@ -2,6 +2,8 @@
   title: Restaurant Demo Page-1
   layout: grid
   rows:
+    - elements: [logo]
+      height: 55
     - elements: [Sales stats on Map,Typical Sales Day Vs Evening]
       height: 270
     - elements: [Sales by the Hour,Top 5 Products by Sale]
@@ -113,7 +115,7 @@
     y_axis_gridlines: true
     show_view_names: false
     series_colors:
-      pos_fact.Sale_USD: "#005DAA"
+      pos_fact.count: "#005DAA"
     limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
@@ -288,3 +290,16 @@
     x_axis_scale: auto
     ordering: none
     show_null_labels: false
+
+
+  - name: logo
+    title: logo
+    type: single_value
+    model: food_service_demo
+    explore: pos_fact
+    dimensions: [pos_fact.product_image]
+    sorts: [pos_fact.product_image]
+    limit: 500
+    show_single_value_title: false
+    show_comparison: false
+
