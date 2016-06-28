@@ -2,9 +2,9 @@
   title: Restaurant Demo Page-1
   layout: grid
   rows:
-    - elements: [Sales stats on Map, Sales by the Hour]
+    - elements: [Sales stats on Map,Typical Sales Day Vs Evening]
       height: 270
-    - elements: [Typical Sales Day Vs Evening,Top 5 Products by Sale]
+    - elements: [Sales by the Hour,Top 5 Products by Sale]
       height: 270
     - elements: [Cash vs Credit, Bottom 5 by Sales]
       height: 270
@@ -113,12 +113,12 @@
     y_axis_gridlines: true
     show_view_names: false
     series_colors:
-      pos_fact.Sale_USD: 005DAA
+      pos_fact.Sale_USD: "#005DAA"
     limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
-    y_axis_labels: [Sales (USD)]
+    y_axis_labels: [Sales (Units)]
     y_axis_tick_density: custom
     y_axis_tick_density_custom: 4
     show_x_axis_label: true
