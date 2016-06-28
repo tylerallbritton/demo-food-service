@@ -13,21 +13,21 @@
 
   filters:
   - name: Map-product-category
-    title: 'Product Category - Map Chart Only'
+    title: 'Product Category'
     type: field_filter
     explore: pos_fact
     field: pos_fact.c_product_category
     default_value: "Bakery Treats"
    
   - name: Map-Quarter
-    title: 'Quarter  - Map Chart Only'
+    title: 'Quarter'
     type: field_filter
     explore: pos_fact
     field: pos_fact.a_transaction_dt_quarter_of_year
     default_value: "Q1"
   
   - name: Product Name
-    title: 'Product Name - Sales by Hour'
+    title: 'Product Name'
     type: field_filter
     explore: pos_fact
     field: pos_fact.c_product_name
@@ -60,12 +60,12 @@
     explore: pos_fact
     field: pos_fact.date_only
 
-    
-  - name: Store Name
-    title: 'Store Name'
+  - name: orgtype
+    title: 'Store Type'
     type: field_filter
     explore: pos_fact
-    field: pos_fact.f_store_name
+    field: pos_fact.f_org_typ
+    default_value: "corporate"
   
     
     
@@ -84,6 +84,9 @@
     listen: 
       Map-product-category: pos_fact.c_product_category
       Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
+      Product Name: pos_fact.c_product_name
+      City: pos_fact.f_city
+      orgtype: pos_fact.f_org_typ 
     sorts: [pos_fact.latlon desc]
     limit: 500
     map_plot_mode: points
@@ -112,7 +115,9 @@
       Product Name: pos_fact.c_product_name
       City: pos_fact.f_city
       Date: pos_fact.date_only
-      Store Name: pos_fact.f_store_name
+      Map-product-category: pos_fact.c_product_category
+      Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
+      orgtype: pos_fact.f_org_typ 
     limit: 500
     stacking: ''
     colors: ['#5245ed', '#ed6168', '#1ea8df', '#353b49', '#49cec1', '#b3a0dd', '#db7f2a',
@@ -152,7 +157,10 @@
       Product_1: pos_fact.Product1
       Product_2:  pos_fact.Product2
       City: pos_fact.f_city
-      Store Name: pos_fact.f_store_name
+      Map-product-category: pos_fact.c_product_category
+      Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
+      Product Name: pos_fact.c_product_name
+      orgtype: pos_fact.f_org_typ 
     limit: 500
     stacking: ''
     colors: ['#62bad4', '#a9c574', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
@@ -194,7 +202,10 @@
     sorts: [pos_fact.a_transaction_dt_day_of_week]
     listen: 
       City: pos_fact.f_city
-      Store Name: pos_fact.f_store_name
+      Map-product-category: pos_fact.c_product_category
+      Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
+      Product Name: pos_fact.c_product_name
+      orgtype: pos_fact.f_org_typ 
     limit: 500
     stacking: normal
     colors: ['#62bad4', '#a9c574', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
@@ -238,7 +249,10 @@
     sorts: [pos_fact.Sale_USD desc]
     listen: 
       City: pos_fact.f_city
-      Store Name: pos_fact.f_store_name
+      Map-product-category: pos_fact.c_product_category
+      Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
+      Product Name: pos_fact.c_product_name
+      orgtype: pos_fact.f_org_typ 
     limit: 5
     stacking: ''
     colors: [red, blue, green, yellow, brown, '#db341d']
@@ -273,7 +287,10 @@
     sorts: [pos_fact.Sale_USD]
     listen: 
      City: pos_fact.f_city
-     Store Name: pos_fact.f_store_name
+     Map-product-category: pos_fact.c_product_category
+     Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
+     Product Name: pos_fact.c_product_name
+     orgtype: pos_fact.f_org_typ 
     limit: 5
     stacking: ''
     colors: [orange, darkblue, lightgreen, silver, purple]
@@ -306,7 +323,10 @@
     measures: [pos_fact.Sale_USD]
     listen:
       City: pos_fact.f_city
-      Store Name: pos_fact.f_store_name
+      Map-product-category: pos_fact.c_product_category
+      Map-Quarter:  pos_fact.a_transaction_dt_quarter_of_year
+      Product Name: pos_fact.c_product_name
+      orgtype: pos_fact.f_org_typ 
     sorts: [pos_fact.a_payment_typ desc, pos_fact.Sale_USD desc 0]
     
     limit: 500
