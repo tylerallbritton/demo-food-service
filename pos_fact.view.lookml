@@ -42,6 +42,10 @@
     type: number
     sql: ${TABLE}.c_product_retail_price
 
+  - dimension: c_food_cost
+    type: number
+    sql: ${TABLE}.c_food_cost
+
   - dimension: customer_first
     type: string
     sql: ${TABLE}.customer_first
@@ -132,9 +136,14 @@
     datatype: date
     sql: ${TABLE}.a_transaction_dt
     
+  - dimension: hour_only
+    type: date_hour
+    sql: ${TABLE}.a_transaction_dt_time
+    
   - dimension: a_weather_cond
     type: string
     sql: ${TABLE}.a_weather_cond
+  
     
   - measure: count
     type: count
@@ -145,6 +154,13 @@
     type: sum
     sql: ${c_product_retail_price}
     value_format_name: usd
+    drill_fields: [f_store_name, c_product_name]
+
+  - measure: food_cost_USD
+    type: sum
+    sql: ${c_food_cost}
+    value_format_name: usd
+    drill_fields: [f_store_name, c_product_name]
     
   - measure: sumday
     type: sum
@@ -199,4 +215,47 @@
   - measure: Avg_Sale_USD
     type: average
     sql: ${c_product_retail_price}
+    value_format_name: usd
+    
+  - measure: disttrans
+    type: count_distinct
+    sql: ${a_transaction_id}
+  
+  - measure: disthours
+    type: count_distinct
+    sql: ${a_transaction_dt_hour}
+  
+
+  
+  - measure: avgtrans
+    type: number
+    sql: ${disttrans}/${disthours}
+    
+    
+  - filter: Year1
+    label: 'Pick Year 1'
+    type: number
+    suggest_dimension: a_transaction_dt
+    
+  - measure: Year1_Sales
+    type: sum
+    sql: |
+      CASE WHEN {% condition Year1 %} ${a_transaction_dt_year} {% endcondition %}
+      THEN ${c_product_retail_price}
+      ELSE NULL
+      END
+    value_format_name: usd
+      
+  - filter: Year2
+    label: 'Pick Year 2'
+    type: number
+    suggest_dimension: a_transaction_dt
+    
+  - measure: Year2_Sales
+    type: sum
+    sql: |
+      CASE WHEN {% condition Year2 %} ${a_transaction_dt_year} {% endcondition %}
+      THEN ${c_product_retail_price}
+      ELSE NULL
+      END
     value_format_name: usd

@@ -10,9 +10,13 @@
 
 - explore: locations
 
+- explore: staff_cost
+
 - explore: pos_fact
 
 - explore: products
+
+- explore: cost_and_sales
 
 - explore: staff
   joins:
@@ -48,7 +52,11 @@
       type: left_outer #_each
       sql_on: ${transactions.location_id} = ${locations.location_id}
       relationship: many_to_one
-
+      
+    - join: staff_cost
+      type: left_outer
+      sql_on: ${staff.staff_id} = ${staff_cost.staff_id}
+      relationship: one_to_one
 
 - explore: transactions
   joins:
