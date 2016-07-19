@@ -212,6 +212,13 @@
     sql: ${image_file}
     html: <img src="{{ value }}" />
     
+  - dimension: image_file2
+    sql: ('https://www.dropbox.com/s/sn464ypvd479so7/Screen%20Shot%202016-07-19%20at%204.00.02%20PM.png?dl=1')
+    
+  - dimension: predictive_image
+    sql: ${image_file2}
+    html: <img src="{{ value }}" />
+    
   - measure: Avg_Sale_USD
     type: average
     sql: ${c_product_retail_price}

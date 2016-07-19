@@ -18,6 +18,10 @@
 
 - explore: cost_and_sales
 
+- explore: cost_and_sales_split
+
+- explore: reviews
+
 - explore: staff
   joins:
     - join: locations

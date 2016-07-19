@@ -1,10 +1,15 @@
-- view: cost_and_sales
-  sql_table_name: tis_demo_food_service.cost_and_sales
+- view: cost_and_sales_split
+  sql_table_name: tis_demo_food_service.cost_and_sales_split
   fields:
+
+  - dimension: category
+    type: string
+    sql: ${TABLE}.category
 
   - dimension: city
     type: string
     sql: ${TABLE}.city
+
 
   - dimension: latitude
     type: string
@@ -18,6 +23,7 @@
   - dimension: longitude
     type: string
     sql: ${TABLE}.longitude
+
 
   - dimension: store_name
     type: string
@@ -35,15 +41,20 @@
     type: count
     approximate_threshold: 100000
     drill_fields: [store_name, locations.location_id, locations.store_name]
-
+    
   - measure: food_cost
-    type: average
+    type: sum
     sql: ${TABLE}.food_cost
+    value_format_name: usd
     
   - measure: sales
-    type: average
+    type: sum
     sql: ${TABLE}.sales
+    value_format_name: usd
 
   - measure: staff_cost
-    type: average
+    type: sum
     sql: ${TABLE}.staff_cost
+    value_format_name: usd
+
+
