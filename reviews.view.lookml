@@ -43,3 +43,11 @@
   - dimension: FBI_image
     sql: ${image_fbi}
     html: <img src="{{ value }}" />
+    
+  - dimension: logo
+    sql: ('https://dl.dropboxusercontent.com/s/inwbx9liflfrsfh/restaurant-logo-2.png')
+    
+  - dimension: luby_logo
+    sql: ${logo}
+    html: <img src="{{ value }}" />
+    

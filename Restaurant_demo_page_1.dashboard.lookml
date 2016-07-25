@@ -1,4 +1,4 @@
-- dashboard: restaurant_demo
+- dashboard: restaurant_demo_page_1
   title: Restaurant Demo Page-1
   layout: grid
   rows:
@@ -95,7 +95,8 @@
     model: food_service_demo
     explore: pos_fact
     dimensions: [pos_fact.a_transaction_dt_hour_of_day]
-    measures: [pos_fact.count]
+    measures: [pos_fact.count, pos_fact.food_cost_USD, pos_fact.Sale_USD]
+    hidden_fields: [pos_fact.food_cost_USD, pos_fact.Sale_USD]
     sorts: [pos_fact.a_transaction_dt_hour_of_day]
     listen: 
       Product Name: pos_fact.c_product_name

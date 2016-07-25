@@ -1,5 +1,5 @@
 - dashboard: predictive_demo
-  title: Predictive Demo
+  title: Predictive Demo Page-1
   layout: grid
   rows:
     - elements: [logo]
