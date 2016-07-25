@@ -32,7 +32,7 @@
     listen:
       City: cost_and_sales_split.city
       Date: cost_and_sales_split.transaction_date
-    sorts: [cost_and_sales_split.city desc]
+    sorts: [cost_and_sales_split.city desc, cost_and_sales_split.category]
     limit: 500
     stacking: normal
     colors: ['#62bad4', '#a9c574', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
