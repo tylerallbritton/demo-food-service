@@ -148,7 +148,7 @@
   - measure: count
     type: count
     approximate_threshold: 100000
-    drill_fields: [f_store_name, c_product_name]
+    drill_fields: [a_transaction_id,a_transaction_dt, f_store_name,c_product_category, c_product_name,c_product_retail_price ]
 
   - measure: Sale_USD
     type: sum
