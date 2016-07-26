@@ -55,9 +55,9 @@
 
   - name: Linear Regression Results
     explore: pos_fact
-    title_text: "CORRELATION BETWEEN WEATHER AND SALES"
-    subtitle_text: "Linear Regression - Sales by Weather Condition"
-    body_text: "Least possible range indicates good predictability.This model shows all weather conditions affect sales."
+    title_text: "Correlation Between Weather And Sales"
+    subtitle_text: ""
+    body_text: ""
     type: text
     show_single_value_title: false
     show_comparison: false

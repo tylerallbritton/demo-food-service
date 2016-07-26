@@ -37,9 +37,9 @@
   elements:
   - name: Text Analytics Algorithm
     explore: reviews
-    title_text: "Model Predicts 80% of Bad Reviews Based on Text Alone"
-    subtitle_text: "Predict Good and Bad Reviews Based on Text"
-    body_text: "Reviews fromHouston Area and Austin Area Luby's Restaurants are used for this Analysis"
+    title_text: "Predict Good and Bad Reviews Based on Text"
+    subtitle_text: ""
+    body_text: ""
     type: text
     show_single_value_title: false
     show_comparison: false
