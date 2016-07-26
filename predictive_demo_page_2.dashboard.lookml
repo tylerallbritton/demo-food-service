@@ -5,7 +5,7 @@
     - elements: [logo]
       height: 55
     - elements: [Text Analytics Algorithm]
-      height: 110
+      height: 45
     - elements: [Review Search Table, Rating Counts]
       height: 270
       width: 800
