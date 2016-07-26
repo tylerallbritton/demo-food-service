@@ -13,6 +13,7 @@
     type: field_filter
     explore: cost_and_sales_split
     field: cost_and_sales_split.city
+    default_value: 'Houston'
     
   - name: Date
     title: 'Date'
