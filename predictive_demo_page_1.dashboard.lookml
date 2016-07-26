@@ -3,9 +3,9 @@
   layout: grid
   rows:
     - elements: [logo]
-      height: 45
+      height: 55
     - elements: [Linear Regression Results]
-      height: 200
+      height: 55
     - elements: [Trans by Weather - Hist, Results]
       height: 370
     - elements: [rain transactions]
